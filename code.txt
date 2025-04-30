@@ -1,0 +1,146 @@
+const message = 'Hello world' // Try edit me
+
+// Update header text
+document.querySelector('#header').innerHTML = message
+
+// Log to console
+console.log("Hello World")
+// комментарий однострочный
+/* комментарий многострочный */
+// типы данных
+const age = 18; // number / integer
+const name = "Masha";// string
+let a = false; // bool: true false
+let b = typeof c; // undefined - пытаемся присвоить b тип переменной c, но с неопределена, b вернет undefined
+let g;
+g = null; // null - ничего
+// настройка typescript решает проблемы и вводит примитивную типизацию
+let id = Symbol(); // символ - примитивный тип данных
+const arr = ['A', 'B', 'C']; // массив
+const car = {
+  mark: 'Mazda',
+  id: 12
+} // объект ключ: значение
+// Преобразование типов
+if (11 == '11') // true - динамическая типизация JavaScript
+11 == 'vanilla' // false
+1 == true
+'1' == true
+undefined == null // true
+1 == ' ' // false
+// конкатенация строковая число + строка = строка
+let a = 2 + '2';
+console.log(a);
+// number, parseInt - функции преобразования строк
+let b = 2 + Number('2');
+console.log(b); // прривели строку '2' к типу number
+//let c = 2 + parseInt('2');
+//console.log(c); // прривели строку '2' к типу number
+
+//let a = true + 'day';
+let a = 5;
+a = '6';
+console.log(a); // выведет 6 - строку
+// const - переменные которые мы не можем переопределять
+const b = 5;
+b = 6; // выдаст ошибку, тк b - константа
+// var, let, const - в чем отличие
+
+// логические операторы
+// ** - возведение в степень
+// % - остаток от деления
+
+// краткие операторы
+a += 1; // то же что a + 1
+b -= 1; // то же что b - 1
+c *= 1; // то же что c * 1
+d /= 1; // то же что d / 1
+
+// логические операторы
+&& // логическое и
+|| // логическое или
+! // логическое не
+
+typeof Nan; // Not a number - вернет значение number
+
+// побитовые операторы
+<<
+>>
+
+// условные выражения
+let age;
+let name;
+if (age > 32 && age < 55) {
+name = 'Masha';}
+else if (age > 60) {
+console.log('Not find');}
+else {
+name = 'Kolya';}
+
+// условный оператор switch case
+switch (new Date().getDay())
+{
+case 1:
+text = "Monday";
+break;
+case 2:
+text = "Saturday";
+break;
+
+// если не выполняется ни одно из условий, вып дефолтное действие
+default:
+// sth
+}
+
+// тернарный оператор
+const firstName = (age < 10) ? "Ivanova" : "Pasova"; // если ... ? присваиваем знач ... иначе : присваиваем знач ...
+
+// Обработчики событий EventListener
+<button type = "button" onClick = "myClickFunc()">
+Нажми меня
+</button>
+
+<script> 
+elem.onClick = () => {
+console.log('Click') //функция вызыва
+}
+</script>
+//ШПАРГАЛКА JAVASCRIPT https://cheatsheets.super-mark.ru/
+
+// цикл for
+for ( let i = 0; i < a; a++) {
+//sth
+}
+
+// цикл while
+while ( i < 50) {
+//sth
+}
+
+// цикл do while
+
+// объявление функций
+// 1 способ
+function myFirstFunction(a, b) {
+return a + b;
+};
+// 2 способ стрелочные функции - не засорять глобальную область памяти
+const sterlFunc = (a,b) => {
+return a * b;
+};
+// вызов функций
+myFirstFunc(3, 3);
+console.log(myFirtFunc(2, 3)); // console.error, alert
+
+// работа со строками
+let abc = 'hgfjjyvuyguygik';
+let len = abc.length; // присваиваем значению len длину с пом метода через точку .length
+abc.toUpperCase;
+abc.toLowerCase;
+
+// методы работы с массивами
+const cars = ['a', 'b', 'c'];
+// выполить указ функцию для всех эл-тов массива
+cars.forEach();
+cars.slice(); // возвращает новый массив кот явл копией исходного 
+

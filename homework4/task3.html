@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lazy Loading and DOM Optimization</title>
+</head>
+<body>
+    <h1>Оптимизация страницы с большим количеством элементов при помощи ленивой
+        загрузки</h1>
+
+    <!-- Список для отображения элементов -->
+    <ul id="list"></ul>
+
+    <!-- Кнопка для загрузки элементов -->
+    <button id="load-more">Загрузить еще</button>
+
+    <script>
+        let itemCount = 0;
+
+        function loadItems(count) {
+            const list = document.getElementById('list');
+            const fragment = document.createDocumentFragment();
+
+            for (let i = 0; i < count; i++) {
+                itemCount++;
+                const li = document.createElement('li');
+                li.textContent = `Элемент ${itemCount}`;
+                fragment.appendChild(li);
+            }
+
+            list.appendChild(fragment);
+        }
+
+        // Изначально загружаем 20 элементов
+        loadItems(20);
+
+        // Обработчик события нажатия на кнопку "Загрузить еще"
+        document.getElementById('load-more').addEventListener('click', () => {
+            loadItems(20); // Загружаем еще 20 элементов
+        });
+
+        // Ленивое добавление изображений при прокрутке
+        window.addEventListener('scroll', () => {
+            if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight) {
+                loadItems(20); // Загружаем еще 20 элементов при достижении конца страницы
+            }
+        });
+        
+    </script>
+</body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Upload Example</title>
+</head>
+<body>
+    <h1>Загрузка изображений</h1>
+    <input type="file" id="image-input" accept="image/*" multiple>
+    <div id="image-gallery"></div>
+
+    <script>
+        const imageInput = document.getElementById('image-input');
+        const imageGallery = document.getElementById('image-gallery');
+
+        imageInput.addEventListener('change', (event) => {
+            const files = event.target.files;
+            imageGallery.innerHTML = ''; // Очищаем галерею перед добавлением новых изображений
+
+            Array.from(files).forEach(file => {
+                const reader = new FileReader();
+                reader.onload = (e) => {
+                    const img = document.createElement('img');
+                    img.src = e.target.result;
+                    img.style.width = '100px'; // Устанавливаем ширину изображения
+                    img.style.margin = '5px'; // Устанавливаем отступы
+                    imageGallery.appendChild(img);
+                };
+                reader.readAsDataURL(file); // Читаем файл как Data URL
+            });
+        });
+    </script>
+</body>
+</html>

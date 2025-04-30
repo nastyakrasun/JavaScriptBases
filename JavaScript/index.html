@@ -1,0 +1,37 @@
+<!-- создать страницу, кнопку на ней - кнопка должна менять цвет при наведении и менять текст при нажатии на нее-->
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <!--<link rel="stylesheet" href="style.css" />-->
+    <!-- подключаем скрипты, всю логику событий прописываем в script.js-->
+    <!-- <script src="script.js"></script> -->
+  </head>
+  <body>
+    <!-- создадим поле для ввода формы-->
+     <input type="file" id="file-input">
+     <!-- тег для контента-->
+     <pre id="file-content"></pre>
+
+     <!-- напишем прямо внутри код javascript-->
+      <script>
+        const fileInput = document.getElementById('file-input');
+        const fileContent = document.getElementById('file-content');
+        
+        //обработчик событий на файл
+        //слушатель событий, срабатывающий при ключ слове change в нашем случае
+        fileInput.addEventListener('change', (event) => {
+          const file = event.target.files[0];
+          const reader = new FileReader();
+          reader.onload = (e) => {
+            //выводим содержимое выбранного файла в pre
+            fileContent.innerText = e.target.result;
+          }
+          reader.readAsText(file);
+        });        
+      </script> 
+
+  </body>
+</html>
